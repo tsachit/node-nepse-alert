@@ -1,0 +1,22 @@
+[
+  {
+    "symbol": "AKPL",
+    "operator": ">",
+    "amount": 600
+  },
+  {
+    "symbol": "AKPL",
+    "operator": "<",
+    "amount": 480
+  },
+  {
+    "symbol": "NHPC",
+    "operator": ">",
+    "amount": 415
+  },
+  {
+    "symbol": "NHPC",
+    "operator": "<",
+    "amount": 400
+  }
+]
