@@ -34,7 +34,7 @@ const checkNEPSE = async () => {
               title: `${symbol} Alert`,
               subtitle: `${symbol} value is ${p.lp} now`,
               message: `LTP: ${p.lp} is ${operator} ${amount}`,
-              sound: 'Frog',
+              sound: 'Glass',
               open: undefined,
               wait: false,
             },
