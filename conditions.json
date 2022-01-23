@@ -2,12 +2,12 @@
   {
     "symbol": "AKPL",
     "operator": ">",
-    "amount": 600
+    "amount": 605
   },
   {
     "symbol": "AKPL",
     "operator": "<",
-    "amount": 480
+    "amount": 595
   },
   {
     "symbol": "NHPC",
@@ -17,6 +17,21 @@
   {
     "symbol": "NHPC",
     "operator": "<",
-    "amount": 400
+    "amount": 405
+  },
+  {
+    "symbol": "HDL",
+    "operator": "<",
+    "amount": 4900
+  },
+  {
+    "symbol": "BOKL",
+    "operator": ">",
+    "amount": 325
+  },
+  {
+    "symbol": "SCB",
+    "operator": ">",
+    "amount": 530
   }
 ]
