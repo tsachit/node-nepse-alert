@@ -12,20 +12,28 @@ const notificationCenterNotifier = new NotificationCenter({
 });
 
 const conditions = JSON.parse(fs.readFileSync('conditions.json'));
+console.log('Checking for Conditions...\n', conditions, '\n');
+
+console.log('Live Data\n');
 
 const interval = 60; // in seconds
+const match = {};
 const checkNEPSE = async () => {
-  console.log('Fetching data...\n')
+  // console.log('Fetching data...\n')
   // Make GET Request on every x seconds
   const response = await axios.get('https://merolagani.com/handlers/webrequesthandler.ashx?type=market_summary');
   // Print data
   const { date, detail } = response?.data?.turnover;
-  if(date) console.log(`Data received. Last updated ${date}\n`);
+  // if(date) console.log('Data received. Last updated:', date);
 
   let matchFound = 0;
   if(detail && detail.length) {
     detail.forEach(p => {
       conditions.forEach(({symbol, operator, amount}) => {
+        if(p.s === symbol && !(symbol in match)) {
+          match[symbol] = parseFloat(p.lp);
+        }
+
         const conditionMet = eval(parseFloat(p.lp) + operator + parseFloat(amount));
         if(p.s === symbol && conditionMet) {
           matchFound++;
@@ -46,7 +54,8 @@ const checkNEPSE = async () => {
       });
     });
   }
-  console.log(`${(!matchFound) ? 'Nothing matched. ': ''}Checking again in ${interval} seconds...\n`);
+  console.log(new Date(), match, '\n');
+  // console.log(`${(!matchFound) ? 'Nothing matched. ': ''}Checking again in ${interval} seconds...\n`);
 };
 
 checkNEPSE();
