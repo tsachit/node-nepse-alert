@@ -1,0 +1,12 @@
+[
+  {
+    "symbol": "AKPL",
+    "operator": ">",
+    "amount": 575
+  },
+  {
+    "symbol": "AKPL",
+    "operator": "<",
+    "amount": 555
+  }
+]

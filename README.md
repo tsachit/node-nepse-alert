@@ -15,6 +15,11 @@ and to run
 yarn start
 ```
 
+Copy `conditions.example.json` as `conditions.json` for alerts
+```
+cp conditions.example.json conditions.json
+```
+
 Note: Make changes in `index.js` to change the `interval` value. If you want to add/update/remove conditions change `conditions.json` file.
 
 ### Aliases:
