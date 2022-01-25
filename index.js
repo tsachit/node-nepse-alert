@@ -17,8 +17,8 @@ console.log('Checking for Conditions...\n', conditions, '\n');
 console.log('Live Data\n');
 
 const interval = 60; // in seconds
-const match = {};
 const checkNEPSE = async () => {
+  const match = {};
   // console.log('Fetching data...\n')
   // Make GET Request on every x seconds
   const response = await axios.get('https://merolagani.com/handlers/webrequesthandler.ashx?type=market_summary');
