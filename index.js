@@ -12,9 +12,8 @@ const notificationCenterNotifier = new NotificationCenter({
 });
 
 const conditions = JSON.parse(fs.readFileSync('conditions.json'));
-console.log('Checking for Conditions...\n', conditions, '\n');
-
-console.log('Live Data\n');
+console.log('Checking for Conditions...');
+console.table(conditions);
 
 const interval = 60; // in seconds
 const checkNEPSE = async () => {
@@ -54,7 +53,8 @@ const checkNEPSE = async () => {
       });
     });
   }
-  console.log(new Date(), match, '\n');
+  console.log(`\nChecking Live Data at ${new Date()}`);
+  console.table(match);
   // console.log(`${(!matchFound) ? 'Nothing matched. ': ''}Checking again in ${interval} seconds...\n`);
 };
 
