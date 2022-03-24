@@ -25,17 +25,20 @@ const checkNEPSE = async () => {
   const { date, detail } = response?.data?.turnover;
   // if(date) console.log('Data received. Last updated:', date);
 
-  let matchFound = 0;
+  // let matchFound = 0;
   if(detail && detail.length) {
     detail.forEach(p => {
       conditions.forEach(({symbol, operator, amount}) => {
         if(p.s === symbol && !(symbol in match)) {
-          match[symbol] = parseFloat(p.lp);
+          match[symbol] = {
+            value: parseFloat(p.lp),
+          };
         }
 
         const conditionMet = eval(parseFloat(p.lp) + operator + parseFloat(amount));
         if(p.s === symbol && conditionMet) {
-          matchFound++;
+          // matchFound++;
+          match[symbol]['condition met'] = `${operator} ${amount}`;
           notificationCenterNotifier.notify(
             {
               title: `${symbol} Alert`,
